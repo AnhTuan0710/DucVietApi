@@ -1,8 +1,8 @@
 import { CategoryService } from './category.service';
-import { Body, Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
-import { Category } from './category.entity/category.entity';
+import { Controller, Get, Param } from '@nestjs/common';
+import { Category } from '../../models/category.entity';
 
-@Controller('category')
+@Controller('categories')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) { }
 
@@ -16,12 +16,12 @@ export class CategoryController {
     return this.categoryService.findOne(params.id);
   }
 
-  @Get('product/:id')
+  @Get('products/:id')
   getProductOfCategory(@Param() params) {
     return this.categoryService.getProductOfCategory(params.id)
   }
 
-  @Get('product')
+  @Get('products')
   getCategoryCombineProduct() {
     return this.categoryService.getCategoryProduct()
   }

@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
-import { Task } from './task.entity/task.entity';
+import { Task } from '../../models/task.entity';
 import { TaskService } from './task.service'
 
 
