@@ -12,8 +12,4 @@ export class UserController {
   getProfile(@Request() req) {
     return req.user;
   }
-  @Post('register')
-  create(@Body () user: User) {
-    return this.userService.regiter(user)
-  }
 }

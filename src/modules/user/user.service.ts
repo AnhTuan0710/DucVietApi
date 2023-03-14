@@ -17,4 +17,9 @@ export class UsersService {
   async regiter(user: User): Promise<User> {
     return await this.usersService.save(user)
   }
+
+  async findUserByEmail(email: string): Promise<User | undefined> {
+    return this.usersService.findOne({ where: { email: email } });
+  }
+
 }

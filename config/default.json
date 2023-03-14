@@ -1,0 +1,19 @@
+{
+  "app": {
+    "api": {
+      "port": 8000,
+      "prefix": "api"
+    },
+    "url": {
+      "admin": "http://localhost:5685"
+    }
+  },
+  "mail_config": {
+    "host": "smtp.gmail.com",
+    "port": "465",
+    "user": "tuannv@medlink.vn",
+    "pass": "Tuan@07102000",
+    "from": "tuannv@mdlink.vn",
+    "secure": true
+  }
+}

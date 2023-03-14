@@ -5,13 +5,15 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { UsersModule } from '../user/user.module';
 import { jwtConstants } from '../../constants/auth';
-import { AppController } from './auth.controller';
+import { AuthController } from './auth.controller';
 import { JwtStrategy } from './jwt.strategy';
+import { MailModule } from '../mail/mail.module';
 
 @Module({
   imports: [
     UsersModule,
     PassportModule,
+    MailModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '30 days' },
@@ -23,6 +25,6 @@ import { JwtStrategy } from './jwt.strategy';
     JwtStrategy,
   ],
   exports: [AuthService],
-  controllers: [AppController]
+  controllers: [AuthController]
 })
 export class AuthModule { }
