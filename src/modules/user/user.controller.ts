@@ -1,7 +1,6 @@
 import { UsersService } from './user.service';
-import { Controller, Request, UseGuards, Get, Body, Post } from '@nestjs/common';
+import { Controller, Request, UseGuards, Get, Body, Post, Param } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { User } from '../../models/user.entity';
 
 @Controller('users')
 export class UserController {
@@ -12,4 +11,15 @@ export class UserController {
   getProfile(@Request() req) {
     return req.user;
   }
+
+  @Get()
+  findAll() {
+    return this.userService.findAll()
+  }
+
+  @Get("invoice/:id")
+  getInvoiceOfUser(@Param() params) {
+    return this.userService.getAllInvoice(params.id)
+  }
+
 }

@@ -11,6 +11,6 @@ export class ProductService {
   ) { }
 
   async findAll(): Promise<Product[]> {
-    return await this.product.find({ relations: ['category'] });
+    return await this.product.find();
   }
 }

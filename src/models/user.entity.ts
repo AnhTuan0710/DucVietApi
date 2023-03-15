@@ -1,6 +1,5 @@
-import { IsEmpty } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Invoice } from './invoice.entity';
 @Entity({ name: 'dv_user' })
 export class User {
   @PrimaryGeneratedColumn()
@@ -15,36 +14,24 @@ export class User {
   @Column()
   password: string;
 
-  @IsEmpty()
-  @Column({
-    length: 500,
-    default: '',
-  })
+  @Column({ length: 500, default: '' })
   address?: string;
 
-  @IsEmpty()
-  @Column({
-    length: 12,
-    default: ''
-  })
+  @Column({ length: 12, default: '' })
   phone_no?: string;
 
-  @IsEmpty()
-  @Column()
+  @Column({ nullable: true })
   create_date?: Date;
 
-  @Column()
+  @Column({ nullable: true })
   update_date?: Date;
 
-  @IsEmpty()
-  @Column({
-    default: 1
-  })
+  @Column({ default: 1 })
   active_flg?: number;
 
-  @IsEmpty()
-  @Column({
-    default: 1
-  })
+  @Column({ default: 1 })
   status?: number;
+
+  @OneToMany(() => Invoice, (invoice) => invoice.userId)
+  invoices?: Invoice[];
 }

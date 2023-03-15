@@ -29,12 +29,13 @@ export class Product {
   @Column()
   status?: number;
 
-  @Column()
+  @Column({ nullable: true })
   create_date?: Date;
 
-  @Column()
+  @Column({ nullable: true })
   update_date?: Date;
 
   @ManyToOne(() => Category, (category) => category.products)
   category: Category
+
 }

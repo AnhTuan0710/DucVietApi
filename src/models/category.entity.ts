@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Product } from "./product.entity";
 
-@Entity({name: 'dv_category'})
+@Entity({ name: 'dv_category' })
 export class Category {
   @PrimaryGeneratedColumn()
   id: number;
@@ -15,10 +15,10 @@ export class Category {
   @Column()
   status?: number;
 
-  @Column()
+  @Column({ nullable: true })
   create_date?: Date;
 
-  @Column()
+  @Column({ nullable: true })
   update_date?: Date;
 
   @OneToMany(() => Product, (product) => product.category)
