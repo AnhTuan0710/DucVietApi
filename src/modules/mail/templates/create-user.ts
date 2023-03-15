@@ -2,7 +2,7 @@ export function MailCreateUserTemplate(name: string, email: string, password: st
   return {
     to: [email],
     cc: null,
-    subject: '[DucViet] Welcome Email',
+    subject: 'Tạo tài khoản',
     html: `
             <div style="width: 680px">
               <p style="margin-bottom: 16px; line-height: 22px">
@@ -15,9 +15,6 @@ export function MailCreateUserTemplate(name: string, email: string, password: st
               </p>
               <p style="margin-bottom: 16px; line-height: 22px">
                 Đăng nhập để sử dụng phần mềm miễn phí
-              </p>
-              <p style="margin-bottom: 16px; line-height: 22px">
-                Cảm ơn bạn đã sử dụng phần mềm,
               </p>
             </div>
         `,

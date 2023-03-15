@@ -13,7 +13,7 @@ export class RegisterDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty({
-    description: 'plan',
+    description: 'name',
     example: 'long',
   })
   name: string;
@@ -21,7 +21,7 @@ export class RegisterDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty({
-    description: 'plan',
+    description: 'password',
     example: 'long',
   })
   password: string;

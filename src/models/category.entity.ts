@@ -5,8 +5,22 @@ import { Product } from "./product.entity";
 export class Category {
   @PrimaryGeneratedColumn()
   id: number;
+
   @Column()
-  name: string
+  name: string;
+
+  @Column()
+  active_flg?: number;
+
+  @Column()
+  status?: number;
+
+  @Column()
+  create_date?: Date;
+
+  @Column()
+  update_date?: Date;
+
   @OneToMany(() => Product, (product) => product.category)
-  products: Product[]
+  products: Product[];
 }

@@ -12,3 +12,12 @@ export const MAIL_CONFIG = {
   FROM: config.get<string>('mail_config.from'),
   SECURE: config.get<boolean>('mail_config.secure'),
 };
+
+export const DATABASE = {
+  TYPE: config.get<string>('database.type'),
+  HOST: config.get<string>('database.host'),
+  PORT: config.get<number>('database.port'),
+  USER_NAME: config.get<string>('database.username'),
+  PASSWORD: config.get<string>('database.password'),
+  DATABASE: config.get<string>('database.database'),
+}

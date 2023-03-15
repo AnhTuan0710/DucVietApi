@@ -7,17 +7,22 @@ import { CategoryModule } from './modules/category/category.module';
 import { ProductModule } from './modules/product/product.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/user/user.module';
+import { User } from './models/user.entity';
+import { Task } from './models/task.entity';
+import { Product } from './models/product.entity';
+import { Category } from './models/category.entity';
+import { DATABASE } from './config';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: '127.0.0.1',
-      port: 3306,
-      username: 'root',
-      password: 'Tuan@07102000',
-      database: 'nestjs',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      type: DATABASE.TYPE,
+      host: DATABASE.HOST,
+      port: DATABASE.PORT,
+      username: DATABASE.USER_NAME,
+      password: DATABASE.PASSWORD,
+      database: DATABASE.DATABASE,
+      entities: [User, Task, Product, Category],
       synchronize: true,
     }),
     TaskModule,
@@ -31,4 +36,4 @@ import { UsersModule } from './modules/user/user.module';
   ],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
