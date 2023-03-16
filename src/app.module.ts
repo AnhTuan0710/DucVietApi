@@ -12,6 +12,8 @@ import { Task } from './models/task.entity';
 import { Product } from './models/product.entity';
 import { Category } from './models/category.entity';
 import { DATABASE } from './config';
+import { InvoiceModule } from './modules/invoice/invoice.module';
+import { Invoice } from './models/invoice.entity';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { DATABASE } from './config';
       username: DATABASE.USER_NAME,
       password: DATABASE.PASSWORD,
       database: DATABASE.DATABASE,
-      entities: [User, Task, Product, Category],
+      entities: [User, Task, Product, Category, Invoice],
       synchronize: true,
     }),
     TaskModule,
@@ -30,6 +32,7 @@ import { DATABASE } from './config';
     ProductModule,
     AuthModule,
     UsersModule,
+    InvoiceModule,
   ],
   controllers: [
     AppController
